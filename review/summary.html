@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件测试重点整理 - 软件测试复习网站</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* 页面整体美化 */
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        /* 章节样式美化 */
+        .chapter {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 25px;
+            position: relative;
+        }
+        
+        .chapter:last-child {
+            border-bottom: none;
+        }
+        
+        .chapter h2 {
+            font-size: 1.8rem;
+            color: #0d47a1;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #bbdefb;
+            position: relative;
+        }
+        
+        .chapter h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: #1e88e5;
+        }
+        
+        /* 主题部分美化 */
+        .topic {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #1e88e5;
+        }
+        
+        .topic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .topic h3 {
+            font-size: 1.4rem;
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+            color: #0d47a1;
+            position: relative;
+        }
+        
+        .topic h3::before {
+            content: '§';
+            position: absolute;
+            left: -10px;
+            color: #bbdefb;
+            font-size: 1.8rem;
+            top: -12px;
+            opacity: 0.6;
+        }
+        
+        /* 基本文本和段落样式 */
+        .topic p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #424242;
+        }
+        
+        .topic strong {
+            color: #0d47a1;
+            font-weight: 600;
+        }
+        
+        /* 列表样式美化 */
+        .topic ul, .topic ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .topic li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .topic ul li::before {
+            content: '•';
+            color: #1e88e5;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .topic ol li {
+            padding-left: 5px;
+        }
+        
+        /* 表格样式美化 */
+        .topic table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .topic th {
+            background-color: #1e88e5;
+            color: white;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+        }
+        
+        .topic td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .topic tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        
+        .topic tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        /* 图片容器美化 */
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .image-container img {
+            max-width: 90%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 边界值选取方法样式 */
+        .method-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .method-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid #1e88e5;
+        }
+        
+        .method-box h4 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #bbdefb;
+        }
+        
+        .method-box ul {
+            margin-top: 10px;
+        }
+        
+        .method-box li {
+            padding: 3px 0;
+        }
+        
+        /* 添加滚动目录 */
+        .toc {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            max-width: 200px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+        
+        .toc h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            color: #0d47a1;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            padding: 4px 0;
+            font-size: 0.9rem;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+        }
+        
+        .toc li:hover, .toc li.active {
+            border-left: 2px solid #1e88e5;
+            color: #1e88e5;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .topic {
+                padding: 15px;
+            }
+            
+            .topic h3 {
+                font-size: 1.2rem;
+            }
+            
+            .chapter h2 {
+                font-size: 1.5rem;
+            }
+            
+            .toc {
+                display: none !important;
+            }
+            
+            .method-container {
+                flex-direction: column;
+            }
+        }
+        
+        /* 打印样式优化 */
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            main {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .topic {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            
+            .toc {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>软件测试重点整理</h1>
+        <p>核心知识点系统梳理</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../exams/exam1.html">试卷一</a></li>
+            <li><a href="../exams/exam2.html">试卷二</a></li>
+            <li><a href="../exams/exam3.html">试卷三</a></li>
+            <li><a href="summary.html">重点整理</a></li>
+        </ul>
+    </nav>
+
+    <!-- 添加滚动目录 -->
+    <div class="toc">
+        <h4>目录</h4>
+        <ul>
+            <li><a href="#chapter1">1. 软件测试基础概念</a></li>
+            <li><a href="#chapter2">2. 白盒测试</a></li>
+            <li><a href="#chapter3">3. 黑盒测试</a></li>
+            <li><a href="#chapter4">4. 测试执行阶段</a></li>
+            <li><a href="#chapter5">5. 功能与非功能测试</a></li>
+            <li><a href="#chapter6">6. 缺陷管理</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="chapter" id="chapter1">
+            <h2>第一章 软件测试基础概念</h2>
+            
+            <div class="topic">
+                <h3>1. 软件测试与软件缺陷</h3>
+                <p><strong>软件测试定义</strong>：使用人工或自动手段来运行或测定某个系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果和实际结果之间的差别。</p>
+                
+                <p><strong>软件缺陷(Bug)定义</strong>：软件缺陷就是存在于软件(程序、数据和文档)中的那些不希望或不可接受的偏差，会导致软件产生质量问题。</p>
+                
+                <p><strong>软件缺陷产生原因</strong>：</p>
+                <ul>
+                    <li>需求分析不明确或不完整</li>
+                    <li>设计阶段逻辑错误</li>
+                    <li>编码错误或实现偏差</li>
+                    <li>文档不完整或不准确</li>
+                    <li>环境兼容性问题</li>
+                    <li>人为因素导致的错误</li>
+                </ul>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 软件测试目的与原则</h3>
+                <p><strong>软件测试目的</strong>：</p>
+                <ol>
+                    <li>验证软件是否满足开发合同、开发计划、需求规格说明和设计说明等规定的软件质量要求；</li>
+                    <li>由于难以消除软件中的所有错误，因此通常来说软件测试的目的就是发现尽可能多的软件缺陷，消除它们，提高软件质量；</li>
+                    <li>测试不仅是为了发现软件缺陷，还是对软件质量进行度量和评估的过程。测试结果数据可以为软件产品的质量测量和评价提供依据；</li>
+                    <li>通过分析软件缺陷产生的原因，可以有针对性地进行软件过程改进。</li>
+                </ol>
+                
+                <p><strong>软件测试原则</strong>：</p>
+                <ol>
+                    <li>软件测试不能证明程序无错</li>
+                    <li>所有测试都应当追溯软件缺陷的起源</li>
+                    <li>尽早和不断地进行软件测试</li>
+                    <li>软件测试应尽可能具有独立性</li>
+                    <li>Pareto原则</li>
+                    <li>重视无效数据和非预期的功能</li>
+                    <li>完全测试不可行，测试需要适时终止</li>
+                    <li>重视回归测试的关联性</li>
+                    <li>软件缺陷的免疫性</li>
+                    <li>测试过程文档需要妥善保存</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>3. 软件生命周期四个阶段</h3>
+                <ol>
+                    <li><strong>需求分析阶段</strong>：确定系统功能和非功能需求</li>
+                    <li><strong>设计阶段</strong>：包括概要设计和详细设计</li>
+                    <li><strong>实现阶段</strong>：编码和单元测试</li>
+                    <li><strong>测试阶段</strong>：集成测试、系统测试和验收测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>4. 软件测试分类</h3>
+                <p><strong>按测试技术划分</strong>：</p>
+                <ul>
+                    <li><strong>白盒测试</strong>：基于内部结构和代码的测试</li>
+                    <li><strong>黑盒测试</strong>：基于功能和接口的测试</li>
+                </ul>
+                
+                <p><strong>按测试阶段划分</strong>：</p>
+                <ul>
+                    <li><strong>单元测试</strong>：针对最小可测试单元</li>
+                    <li><strong>集成测试</strong>：验证模块间接口</li>
+                    <li><strong>系统测试</strong>：验证完整系统</li>
+                    <li><strong>验收测试</strong>：用户参与的最终验证</li>
+                </ul>
+                
+                <p><strong>按测试执行状态划分</strong>：</p>
+                <ul>
+                    <li>静态测试与动态测试</li>
+                </ul>
+                
+                <p><strong>按用户需求划分</strong>：</p>
+                <ul>
+                    <li>功能测试与非功能测试</li>
+                </ul>
+                
+                <p><strong>其他分类</strong>：</p>
+                <ul>
+                    <li>随机测试，回归测试，冒烟测试</li>
+                </ul>
+            </div>
+            
+            <div class="topic">
+                <h3>5. 测试用例</h3>
+                <p><strong>测试用例概念</strong>：测试用例是测试执行之前已设计好的一套详细的测试方案，也是测试执行时的最小实体。</p>
+                
+                <p><strong>测试用例编写依据</strong>：</p>
+                <ul>
+                    <li>软件需求规格说明书</li>
+                    <li>软件设计说明书，包括概要设计和详细设计等</li>
+                    <li>软件测试计划</li>
+                    <li>软件原型系统</li>
+                    <li>已有的成熟软件测试用例</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chapter" id="chapter2">
+            <h2>第二章 白盒测试</h2>
+            
+            <div class="topic">
+                <h3>1. 白盒测试基础</h3>
+                <p><strong>白盒测试概念</strong>：是在已知产品内部工作流程的情况下，研究程序的源代码和程序结构，按照程序的内部结构测试程序。要求对程序的语句和分支结构做到一定的覆盖，对所有逻辑路径进行测试，并且检查程序内部控制结构和数据结构是否存在错误。</p>
+                
+                <p><strong>白盒测试基本原则</strong>：</p>
+                <ol>
+                    <li>保证程序模块所有独立路径至少被执行一次</li>
+                    <li>保证程序中的所有逻辑值都能测试取真和假两种情况</li>
+                    <li>在循环的边界和运行的界限内执行循环体</li>
+                    <li>测试程序内部数据结构的有效性以及完成边界数据取值情况下的测试</li>
+                </ol>
+                
+                <p><strong>白盒测试的静态测试概念</strong>：静态测试就是不实际运行被测试的软件，而只是静态地检查程序代码、界面或文档中可能存在的错误的过程。</p>
+                
+                <p><strong>白盒测试的动态测试概念</strong>：是指通过实际运行被测程序，输入测试数据并观察程序运行状态和输出结果，来验证程序内部逻辑和结构正确性的测试方法。</p>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 静态测试与动态测试</h3>
+                <p><strong>静态测试</strong>：不运行程序，通过检查代码和文档来发现缺陷的方法。</p>
+                
+                <p><strong>静态测试常用方法</strong>：</p>
+                <ul>
+                    <li>代码检查法</li>
+                    <li>静态结构分析法</li>
+                    <li>代码度量分析</li>
+                </ul>
+                
+                <p><strong>动态测试</strong>：通过实际运行程序来发现缺陷的方法。</p>
+                
+                <p><strong>动态测试手段</strong>：</p>
+                <ul>
+                    <li>程序插桩</li>
+                    <li>逻辑覆盖测试</li>
+                    <li>基本路径测试</li>
+                    <li>循环结构测试</li>
+                </ul>
+            </div>
+            
+            <div class="topic">
+                <h3>3. 逻辑覆盖测试</h3>
+                <p><strong>逻辑覆盖种类</strong>：</p>
+                <ol>
+                    <li><strong>语句覆盖</strong>：每条语句至少执行一次</li>
+                    <li><strong>判定覆盖</strong>：每个判定取真和假至少一次</li>
+                    <li><strong>条件覆盖</strong>：每个条件取真和假至少一次</li>
+                    <li><strong>判定-条件覆盖</strong>：同时满足判定和条件覆盖</li>
+                    <li><strong>条件组合覆盖</strong>：所有条件组合至少执行一次</li>
+                    <li><strong>路径覆盖</strong>：所有可能路径至少执行一次</li>
+                </ol>
+                
+                <p><strong>覆盖强度关系</strong>：路径覆盖 > 条件组合覆盖 > 判定-条件覆盖 > 条件覆盖 > 判定覆盖 > 语句覆盖</p>
+            </div>
+            
+            <div class="topic">
+                <h3>4. 循环结构测试</h3>
+                <p>循环测试主要关注：</p>
+                <ul>
+                    <li>简单循环测试（0次、1次、2次、典型次数、最大次数）</li>
+                    <li>嵌套循环测试</li>
+                    <li>串接循环测试</li>
+                    <li>非结构循环测试</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chapter" id="chapter3">
+            <h2>第三章 黑盒测试</h2>
+            
+            <div class="topic">
+                <h3>1. 黑盒测试基础</h3>
+                <p><strong>黑盒测试概念</strong>：黑盒测试又称为数据驱动测试。黑盒测试不关心程序内部结构，将程序看作不能打开的黑盒，用于检查程序所应具有的功能是否都已实现，每个功能是否都能正常使用，是否满足用户的需求。</p>
+                
+                <p><strong>黑盒测试优点</strong>：</p>
+                <ul>
+                    <li>能最直观、最直接地反映出软件是否满足需求；</li>
+                    <li>对于较大的代码单元来说，测试效率高；</li>
+                    <li>测试人员不需要了解软件内部实现的细节，包括具体的编程语言；</li>
+                    <li>测试人员和编程人员是相互独立的；</li>
+                    <li>从用户的角度进行测试，容易被理解和接受；</li>
+                    <li>有助于暴露任何与规格说明不一致或有歧义的问题；</li>
+                    <li>测试用例的设计可以在规格说明完成之后马上进行；</li>
+                    <li>容易入手生成测试数据；</li>
+                    <li>适用于各阶段测试。</li>
+                </ul>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 等价类划分法</h3>
+                <p><strong>六条规则</strong>：</p>
+                <ol>
+                    <li>输入条件规定了取值范围，划分一个有效等价类和两个无效等价类</li>
+                    <li>输入条件规定了值的个数，划分一个有效等价类和两个无效等价类</li>
+                    <li>输入条件规定了"必须如何"的条件，划分一个有效等价类和一个无效等价类</li>
+                    <li>输入条件是一个布尔量，划分一个有效等价类和一个无效等价类</li>
+                    <li>规定了输入数据的一组值，且程序对不同输入做不同处理，每个值为一个有效等价类，并有一个无效等价类</li>
+                    <li>输入条件规定了必须遵守的规则，划分一个符合规则的有效等价类和若干个从不同角度违反规则的无效等价类</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>3. 边界值分析法</h3>
+                <p><strong>边界值选取原则</strong>：</p>
+                <ol>
+                    <li>如果输入条件规定了取值的范围，那么测试用例的输入数据应选取所规定范围的边界值以及刚刚超过范围边界的值。</li>
+                    <li>如果输入条件规定了值的个数，那么测试用例选择最大个数、最小个数、比最大个数多1和比最小个数少1的数据等作为测试数据。</li>
+                    <li>根据规格说明的每一个输出条件，分别使用以上两个原则。</li>
+                    <li>如果输入域和输出域是顺序表或顺序文件等有序集合，那么选取集合的第一个和最后一个元素作为测试用例。</li>
+                    <li>对于程序的内部数据结构，选择其边界值作为测试用例。</li>
+                    <li>分析规格说明并找出其他可能的边界条件。</li>
+                </ol>
+                
+                <p><strong>两类边界值选取方法</strong>：</p>
+                <div class="method-container">
+                    <div class="method-box">
+                        <h4>二分法</h4>
+                        <p>对于范围[min, max]，选取以下边界值：</p>
+                        <ul>
+                            <li>最小值: min</li>
+                            <li>最小值外: min-1</li>
+                            <li>最大值: max</li>
+                            <li>最大值外: max+1</li>
+                        </ul>
+                    </div>
+                    <div class="method-box">
+                        <h4>三分法</h4>
+                        <p>对于范围[min, max]，选取以下边界值：</p>
+                        <ul>
+                            <li>最小值: min</li>
+                            <li>最小值内: min+1</li>
+                            <li>最小值外: min-1</li>
+                            <li>最大值: max</li>
+                            <li>最大值内: max-1</li>
+                            <li>最大值外: max+1</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="image-container">
+                    <img src="../assets/img/判定表.png" alt="判定表" title="判定表示例">
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>4. 场景法</h3>
+                <p><strong>基本流（Main Flow）</strong>：</p>
+                <p>基本流是用户通过系统完成核心业务的最简路径，无任何异常或错误干扰，体现软件的主要功能流程。</p>
+                <p><strong>核心特征</strong>：</p>
+                <ul>
+                    <li><strong>唯一性</strong>：每个用例仅有一个基本流，且仅有一个起点和终点。</li>
+                    <li><strong>典型性</strong>：覆盖大多数用户的标准操作路径（例如：在线购物中的"选商品→结算→付款→生成订单"）。</li>
+                    <li><strong>完整性</strong>：构成完整的业务流程，独立完成业务目标（如旅馆预订系统中"选择日期→选择房间→登录→支付→生成订单"）。</li>
+                    <li><strong>测试优先级</strong>：作为验证软件核心功能正确性的必测路径。</li>
+                </ul>
+                
+                <p><strong>备选流（Alternative Flow）</strong>：</p>
+                <p>备选流是对基本流的补充，描述因异常条件或用户非常规操作触发的分支路径，用于验证系统的容错能力和异常处理机制。</p>
+                <p><strong>分类与触发条件</strong>：</p>
+                <table>
+                    <tr>
+                        <th>类型</th>
+                        <th>触发条件示例</th>
+                        <th>典型场景</th>
+                    </tr>
+                    <tr>
+                        <td><strong>分支型备选流</strong></td>
+                        <td>输入错误、条件不满足</td>
+                        <td>密码错误、账户余额不足</td>
+                    </tr>
+                    <tr>
+                        <td><strong>循环型备选流</strong></td>
+                        <td>重复操作或流程回退</td>
+                        <td>重新选择日期、修改订单信息</td>
+                    </tr>
+                    <tr>
+                        <td><strong>终止型备选流</strong></td>
+                        <td>业务无法继续执行的严重错误</td>
+                        <td>服务器连接超时、支付通道关闭</td>
+                    </tr>
+                </table>
+                
+                <p><strong>基本流与备选流的区别</strong>：</p>
+                <table>
+                    <tr>
+                        <th>维度</th>
+                        <th>基本流</th>
+                        <th>备选流</th>
+                    </tr>
+                    <tr>
+                        <td>数量</td>
+                        <td>唯一</td>
+                        <td>多个</td>
+                    </tr>
+                    <tr>
+                        <td>起始点</td>
+                        <td>系统初始状态</td>
+                        <td>基本流/其他备选流的特定节点</td>
+                    </tr>
+                    <tr>
+                        <td>终止点</td>
+                        <td>系统终止状态（业务完成）</td>
+                        <td>可能终止用例或返回基本流</td>
+                    </tr>
+                    <tr>
+                        <td>是否独立构成完整流程</td>
+                        <td>是</td>
+                        <td>否（需组合使用）</td>
+                    </tr>
+                    <tr>
+                        <td>测试优先级</td>
+                        <td>高（核心功能验证）</td>
+                        <td>中（异常处理验证）</td>
+                    </tr>
+                </table>
+                
+                <p><strong>场景法的应用原则</strong>：</p>
+                <ol>
+                    <li><strong>覆盖性</strong>：确保每个备选流至少被一个场景覆盖。</li>
+                    <li><strong>简洁性</strong>：优先选择典型场景，避免因备选流过多导致"场景爆炸"。</li>
+                    <li><strong>组合策略</strong>：通过基本流串联关键备选流，减少冗余测试用例（如合并高频异常路径）。</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>5. 黑盒与白盒测试对比</h3>
+                <ol>
+                    <li>白盒测试只根据程序的内部结构进行测试，不能确保软件已经实现规格说明中的所有功能。</li>
+                    <li>黑盒测试则只根据程序外部特性进行测试，不能保证已经实现的各个程序部分都被测试到。</li>
+                    <li>对于较大的代码单元，如系统级模块，黑盒测试比白盒测试效率高。</li>
+                    <li>白盒测试的成本要高一些。</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="chapter" id="chapter4">
+            <h2>第四章 测试执行阶段</h2>
+            
+            <div class="topic">
+                <h3>1. 单元测试</h3>
+                <p><strong>概念</strong>：针对软件最小可测试单元（通常是函数或类）进行的测试。</p>
+                
+                <p><strong>测试依据</strong>：软件详细设计说明书，也包括源程序本身的代码和注释。</p>
+                
+                <p><strong>通过标准</strong>：</p>
+                <ol>
+                    <li>程序通过所有单元测试的用例，程序语句的覆盖率达到100%，程序分支的覆盖率达到85%。</li>
+                    <li>核心模块的语句覆盖率和分支覆盖率都要达到100%。</li>
+                </ol>
+                
+                <p><strong>单元测试任务</strong>：</p>
+                <ol>
+                    <li>模块接口测试</li>
+                    <li>模块局部数据结构测试</li>
+                    <li>边界条件测试</li>
+                    <li>模块独立路径测试</li>
+                    <li>出错处理测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 集成测试</h3>
+                <p><strong>概念</strong>：将已测试的单元按设计要求逐步组装，测试接口和交互。</p>
+                
+                <p><strong>主要任务</strong>：</p>
+                <ol>
+                    <li>验证模块间接口正确性</li>
+                    <li>验证全局数据结构完整性</li>
+                    <li>验证功能实现的完整性</li>
+                    <li>发现单元测试未发现的错误</li>
+                </ol>
+                
+                <p><strong>集成策略</strong>：</p>
+                <ol>
+                    <li><strong>自顶向下</strong>：从主控模块开始逐步集成
+                        <ul>
+                            <li>优点：早期验证主要控制和决策点</li>
+                            <li>缺点：需要大量桩模块</li>
+                        </ul>
+                    </li>
+                    <li><strong>自底向上</strong>：从底层模块开始逐步集成
+                        <ul>
+                            <li>优点：不需要桩模块，驱动模块开发简单</li>
+                            <li>缺点：高层设计错误发现晚</li>
+                        </ul>
+                    </li>
+                    <li><strong>三明治</strong>：结合自顶向下和自底向上</li>
+                    <li><strong>持续集成</strong>：频繁集成并自动化测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>3. 系统测试</h3>
+                <p><strong>概念</strong>：系统测试是将经过集成测试之后的软件系统与计算机硬件、输入输出设备、所需要的其他支撑软件、必需的初始化业务数据等系统运行必备元素组合在一起，然后对用户实际运行环境下的完整计算机系统进行测试。</p>
+                
+                <p><strong>主要内容</strong>：</p>
+                <ol>
+                    <li>功能测试</li>
+                    <li>性能测试</li>
+                    <li>安全性测试</li>
+                    <li>兼容性测试</li>
+                    <li>可靠性测试</li>
+                    <li>安装性测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>4. 验收测试</h3>
+                <p><strong>概念</strong>：验收测试也称为交付测试，是在发布或部署软件之前，对软件系统进行的最后一个技术测试阶段。</p>
+                
+                <p><strong>主要内容</strong>：</p>
+                <ol>
+                    <li>软件配置审查</li>
+                    <li>软件有效性测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>5. 回归测试</h3>
+                <p><strong>概念</strong>：回归测试是指在对之前已经测试过的软件系统进行修改或扩充之后所进行的重新测试，是为了保证对软件所做的修改和扩充没有引起新的错误而进行的重复测试。</p>
+            </div>
+        </div>
+        
+        <div class="chapter" id="chapter5">
+            <h2>第五章 功能与非功能测试</h2>
+            
+            <div class="topic">
+                <h3>1. 功能测试</h3>
+                <p><strong>概念</strong>：验证软件功能是否符合需求规格说明。</p>
+                
+                <p><strong>主要内容</strong>：</p>
+                <ol>
+                    <li>业务流程测试</li>
+                    <li>功能点测试</li>
+                    <li>数据验证测试</li>
+                    <li>用户界面测试</li>
+                    <li>错误处理测试</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 非功能测试</h3>
+                <p><strong>与功能测试的主要区别</strong>：</p>
+                <ol>
+                    <li>关注系统如何工作而非做什么</li>
+                    <li>通常难以量化</li>
+                    <li>测试结果常为范围而非通过/失败</li>
+                    <li>测试环境要求更高</li>
+                </ol>
+                
+                <p><strong>性能测试分类</strong>：</p>
+                <ol>
+                    <li><strong>负载测试</strong>：评估系统在预期负载下的表现</li>
+                    <li><strong>压力测试</strong>：评估系统在极限负载下的表现</li>
+                    <li><strong>稳定性测试</strong>：长时间运行评估系统稳定性</li>
+                    <li><strong>并发测试</strong>：评估多用户同时访问的能力</li>
+                </ol>
+                
+                <p><strong>性能测试目的</strong>：</p>
+                <ol>
+                    <li>验证系统性能指标</li>
+                    <li>发现性能瓶颈</li>
+                    <li>评估系统容量</li>
+                    <li>验证系统稳定性</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="chapter" id="chapter6">
+            <h2>第六章 缺陷管理</h2>
+            
+            <div class="topic">
+                <h3>1. 软件缺陷属性</h3>
+                <p><strong>主要属性</strong>：</p>
+                <ol>
+                    <li>缺陷ID</li>
+                    <li>缺陷标题</li>
+                    <li>缺陷严重程度</li>
+                    <li>缺陷优先级</li>
+                    <li>缺陷状态</li>
+                    <li>缺陷来源</li>
+                    <li>缺陷类型</li>
+                    <li>缺陷重现步骤</li>
+                    <li>缺陷发现环境</li>
+                    <li>缺陷发现者</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>2. 缺陷生命周期</h3>
+                <p><strong>典型缺陷生命周期</strong>：</p>
+                <ol>
+                    <li>新建(New)</li>
+                    <li>已分配(Assigned)</li>
+                    <li>已打开(Open)</li>
+                    <li>已修复(Fixed)</li>
+                    <li>已验证(Verified)</li>
+                    <li>已关闭(Closed)</li>
+                    <li>可能还包括：拒绝(Rejected)、延期(Deferred)、重新打开(Reopened)等状态</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>3. 缺陷重现措施</h3>
+                <p><strong>当缺陷难以重现时</strong>：</p>
+                <ol>
+                    <li>详细记录测试环境</li>
+                    <li>收集系统日志</li>
+                    <li>使用调试工具</li>
+                    <li>尝试不同输入组合</li>
+                    <li>分析可能的内存或时序问题</li>
+                    <li>考虑并发或资源竞争情况</li>
+                </ol>
+            </div>
+            
+            <div class="topic">
+                <h3>4. 测试评估方法</h3>
+                <p><strong>软件测试评估方法</strong>：</p>
+                <ol>
+                    <li>缺陷分析（密度、趋势、分布）</li>
+                    <li>覆盖率分析（代码、需求、用例）</li>
+                    <li>测试充分性评估</li>
+                    <li>测试有效性评估</li>
+                    <li>测试效率评估</li>
+                    <li>基于风险的评估</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>软件测试复习网站 &copy; 2025</p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // 添加目录显示控制和滚动监听功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 显示目录
+            const toc = document.querySelector('.toc');
+            if (window.innerWidth > 768) {
+                toc.style.display = 'block';
+            }
+            
+            // 监听滚动，高亮当前章节
+            const chapters = document.querySelectorAll('.chapter');
+            const tocLinks = document.querySelectorAll('.toc li');
+            
+            window.addEventListener('scroll', function() {
+                let currentChapterIndex = 0;
+                
+                chapters.forEach((chapter, index) => {
+                    const chapterTop = chapter.offsetTop;
+                    const chapterHeight = chapter.offsetHeight;
+                    
+                    if (window.pageYOffset >= chapterTop - 100) {
+                        currentChapterIndex = index;
+                    }
+                });
+                
+                tocLinks.forEach(link => link.classList.remove('active'));
+                tocLinks[currentChapterIndex].classList.add('active');
+            });
+            
+            // 添加平滑滚动效果
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // 章节和主题的动画效果
+            const addVisibleClass = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            };
+            
+            const observer = new IntersectionObserver(addVisibleClass, {
+                root: null,
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.topic').forEach(topic => {
+                topic.style.opacity = '0';
+                topic.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(topic);
+            });
+            
+            // 添加可见性类
+            document.addEventListener('scroll', function() {
+                document.querySelectorAll('.topic').forEach(topic => {
+                    const position = topic.getBoundingClientRect();
+                    
+                    if(position.top < window.innerHeight && position.bottom >= 0) {
+                        topic.style.opacity = '1';
+                    }
+                });
+            });
+            
+            // 初始化第一屏内容可见
+            document.querySelectorAll('.topic').forEach(topic => {
+                const position = topic.getBoundingClientRect();
+                if(position.top < window.innerHeight) {
+                    topic.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

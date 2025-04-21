@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错题本 - 软件测试复习网站</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>我的错题本</h1>
+        <p>软件测试复习网站</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="exams/exam1.html">试卷一</a></li>
+            <li><a href="exams/exam2.html">试卷二</a></li>
+            <li><a href="exams/exam3.html">试卷三</a></li>
+            <li><a href="review/summary.html">重点整理</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索题目或知识点...">
+            <button id="search-button" class="btn-search">搜索</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="mistake-header">
+            <h2>我的错题收集</h2>
+            <p>这里收集了您在练习过程中回答错误的题目，便于重点复习。</p>
+            <div class="mistake-controls">
+                <button id="clear-mistakes" class="btn">清空错题本</button>
+                <button id="export-mistakes" class="btn">导出错题</button>
+            </div>
+        </section>
+
+        <section id="mistake-stats" class="mistake-stats">
+            <h3>错题统计</h3>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-mistakes">0</div>
+                    <div class="stat-label">总错题数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="choice-mistakes">0</div>
+                    <div class="stat-label">选择题</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="judge-mistakes">0</div>
+                    <div class="stat-label">判断题</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="most-mistakes">-</div>
+                    <div class="stat-label">最多错题章节</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mistake-filter" class="mistake-filter">
+            <h3>筛选错题</h3>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>题型：</label>
+                    <select id="type-filter">
+                        <option value="all">全部</option>
+                        <option value="选择题">选择题</option>
+                        <option value="判断题">判断题</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>章节：</label>
+                    <select id="chapter-filter">
+                        <option value="all">全部</option>
+                        <option value="第1章">第1章</option>
+                        <option value="第2章">第2章</option>
+                        <option value="第3章">第3章</option>
+                        <option value="第4章">第4章</option>
+                        <option value="第5章">第5章</option>
+                        <option value="第6章">第6章</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>试卷：</label>
+                    <select id="exam-filter">
+                        <option value="all">全部</option>
+                        <option value="exam1">试卷一</option>
+                        <option value="exam2">试卷二</option>
+                        <option value="exam3">试卷三</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section id="mistake-list" class="mistake-list">
+            <div id="no-mistakes" class="no-mistakes">
+                <p>您的错题本还是空的。</p>
+                <p>在做题过程中回答错误的题目会自动添加到这里。</p>
+                <a href="exams/exam1.html" class="btn">去做题</a>
+            </div>
+            <!-- 错题列表将通过JavaScript动态加载 -->
+        </section>
+
+        <section class="mistake-tips">
+            <h3>学习建议</h3>
+            <ul>
+                <li>定期复习错题本，可以帮助您巩固薄弱知识点</li>
+                <li>尝试总结错题的规律，找出自己的知识盲点</li>
+                <li>对于重复出错的知识点，建议回顾教材相关章节</li>
+                <li>可以使用导出功能，制作错题打印版，随时复习</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>软件测试复习网站 &copy; 2025</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/mistake-collection.js"></script>
+</body>
+</html> 

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>试卷一 - 软件测试复习网站</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .choice-option, .judge-option {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .choice-option:hover, .judge-option:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .selected {
+            border-left: 4px solid #1e88e5;
+            padding-left: 12px;
+        }
+        
+        .correct {
+            background-color: #e8f5e9;
+            border-left: 4px solid #43a047;
+        }
+        
+        .incorrect {
+            background-color: #ffebee;
+            border-left: 4px solid #e53935;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>试卷一</h1>
+        <p>软件测试复习练习</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="exam1.html">试卷一</a></li>
+            <li><a href="exam2.html">试卷二</a></li>
+            <li><a href="exam3.html">试卷三</a></li>
+            <li><a href="../review/summary.html">重点整理</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>一、选择题（15题×2分=30分）</h2>
+            
+            <div class="question" data-type="选择题" data-chapter="第3章">
+                <p>1. 判定表中，若条件桩包含3个条件，规则数为（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 3</div>
+                    <div class="choice-option" data-correct="false">B. 6</div>
+                    <div class="choice-option" data-correct="true">C. 8</div>
+                    <div class="choice-option" data-correct="false">D. 9</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：C</p>
+                    <p>解析：判定表中，若条件桩包含n个条件，规则数为2^n。当n=3时，规则数为2^3=8。</p>
+                </div>
+            </div>
+
+            <div class="question" data-type="选择题" data-chapter="第3章">
+                <p>2. 等价类划分法中，设计无效等价类测试用例的原则是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 一个用例覆盖多个无效等价类</div>
+                    <div class="choice-option" data-correct="true">B. 每个用例仅覆盖一个无效等价类</div>
+                    <div class="choice-option" data-correct="false">C. 无需覆盖所有无效等价类</div>
+                    <div class="choice-option" data-correct="false">D. 仅需覆盖有效等价类</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：等价类划分法中，设计无效等价类测试用例的原则是每个用例仅覆盖一个无效等价类，而有效等价类测试用例则尽可能多地覆盖有效等价类。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. 因果图法中，"互斥约束"表示（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="true">A. 两个原因不能同时为真</div>
+                    <div class="choice-option" data-correct="false">B. 结果必须同时发生</div>
+                    <div class="choice-option" data-correct="false">C. 原因与结果一一对应</div>
+                    <div class="choice-option" data-correct="false">D. 结果之间存在依赖</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：A</p>
+                    <p>解析：因果图法中，"互斥约束"表示两个原因不能同时为真，即如果一个为真，另一个必须为假。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. 白盒测试中，若程序盒图包含两组串行选择结构（路径数分别为2和3），最终可执行路径总数为（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 5</div>
+                    <div class="choice-option" data-correct="true">B. 6</div>
+                    <div class="choice-option" data-correct="false">C. 8</div>
+                    <div class="choice-option" data-correct="false">D. 10</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：串行结构的路径数应相乘，即2×3=6条可执行路径。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. 以下属于黑盒测试方法的是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 语句覆盖</div>
+                    <div class="choice-option" data-correct="true">B. 等价类划分法</div>
+                    <div class="choice-option" data-correct="false">C. 路径覆盖</div>
+                    <div class="choice-option" data-correct="false">D. 循环测试</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：等价类划分法是典型的黑盒测试方法，不需要了解程序内部结构，而语句覆盖、路径覆盖和循环测试都是白盒测试方法。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. 环路复杂度为10的程序，至少需要多少个测试用例才能实现基本路径覆盖？（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 5</div>
+                    <div class="choice-option" data-correct="false">B. 8</div>
+                    <div class="choice-option" data-correct="true">C. 10</div>
+                    <div class="choice-option" data-correct="false">D. 20</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：C</p>
+                    <p>解析：环路复杂度表示程序中独立路径的数量，也是实现基本路径覆盖所需的最少测试用例数量。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>7. 边界值分析法中，对于取值范围1~100的变量，以下哪组测试数据是正确的？（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 0, 1, 50, 100, 101</div>
+                    <div class="choice-option" data-correct="false">B. 1, 2, 99, 100</div>
+                    <div class="choice-option" data-correct="true">C. 0, 1, 2, 99, 100, 101</div>
+                    <div class="choice-option" data-correct="false">D. 1, 50, 100</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：C</p>
+                    <p>解析：健壮性边界值分析法需要测试边界值及其两侧的值，包括边界外的值，即0、1、2、99、100、101。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. 以下哪种测试方法最适合验证业务流程的正确性？（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 单元测试</div>
+                    <div class="choice-option" data-correct="false">B. 性能测试</div>
+                    <div class="choice-option" data-correct="true">C. 功能测试</div>
+                    <div class="choice-option" data-correct="false">D. 安全测试</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：C</p>
+                    <p>解析：功能测试主要验证系统的功能是否符合需求规格说明，是验证业务流程正确性的最佳选择。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>9. 回归测试的主要目的是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 验证新功能的正确性</div>
+                    <div class="choice-option" data-correct="true">B. 确保修改不会影响现有功能</div>
+                    <div class="choice-option" data-correct="false">C. 测试系统的性能指标</div>
+                    <div class="choice-option" data-correct="false">D. 检查用户界面的可用性</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：回归测试的主要目的是确保软件修改后不会破坏原有的功能，保证系统的稳定性。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>10. 正交表L9(3⁴)表示（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="true">A. 4因素3水平共9次实验</div>
+                    <div class="choice-option" data-correct="false">B. 3因素4水平共9次实验</div>
+                    <div class="choice-option" data-correct="false">C. 9因素3水平共4次实验</div>
+                    <div class="choice-option" data-correct="false">D. 3因素9水平共4次实验</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：A</p>
+                    <p>解析：正交表L9(3⁴)表示4个因素，每个因素3个水平，共需9次实验就可以覆盖所有组合情况。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>11. 软件测试的目的是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 证明程序没有错误</div>
+                    <div class="choice-option" data-correct="true">B. 发现程序中的错误</div>
+                    <div class="choice-option" data-correct="false">C. 优化程序性能</div>
+                    <div class="choice-option" data-correct="false">D. 完善程序文档</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：软件测试的目的是发现程序中的错误，而不是证明程序没有错误。测试是为了提高软件质量，通过找出并修复缺陷来实现。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>12. 以下哪种测试是验证单个模块功能的测试？（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="true">A. 单元测试</div>
+                    <div class="choice-option" data-correct="false">B. 集成测试</div>
+                    <div class="choice-option" data-correct="false">C. 系统测试</div>
+                    <div class="choice-option" data-correct="false">D. 验收测试</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：A</p>
+                    <p>解析：单元测试是对软件中的最小可测试单元（通常是函数或方法）进行的测试，验证单个模块的功能是否正确。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>13. 软件缺陷的严重级别最高的是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 轻微</div>
+                    <div class="choice-option" data-correct="false">B. 一般</div>
+                    <div class="choice-option" data-correct="false">C. 严重</div>
+                    <div class="choice-option" data-correct="true">D. 致命</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：D</p>
+                    <p>解析：软件缺陷的严重级别通常分为轻微、一般、严重和致命四个级别，其中致命级别最高，表示该缺陷会导致系统崩溃或无法运行。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>14. 以下属于非功能测试的是（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 单元测试</div>
+                    <div class="choice-option" data-correct="true">B. 性能测试</div>
+                    <div class="choice-option" data-correct="false">C. 集成测试</div>
+                    <div class="choice-option" data-correct="false">D. 回归测试</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：B</p>
+                    <p>解析：性能测试属于非功能测试，主要关注系统的性能指标，如响应时间、吞吐量和资源利用率等，而不是功能的正确性。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>15. 测试用例的设计依据不包括（ ）</p>
+                <div class="options">
+                    <div class="choice-option" data-correct="false">A. 需求规格说明书</div>
+                    <div class="choice-option" data-correct="false">B. 设计文档</div>
+                    <div class="choice-option" data-correct="true">C. 开发人员个人喜好</div>
+                    <div class="choice-option" data-correct="false">D. 用户使用手册</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：C</p>
+                    <p>解析：测试用例的设计应该基于客观文档和分析，而不是开发人员的个人喜好，这样才能保证测试的全面性和客观性。</p>
+                </div>
+            </div>
+            
+            <!-- 可继续添加其他选择题 -->
+        </section>
+
+        <section>
+            <h2>二、判断题（10题×2分=20分）</h2>
+            
+            <div class="question">
+                <p>1. （ ）等价类划分法的测试用例必须覆盖所有有效等价类。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="true">正确</div>
+                    <div class="judge-option" data-correct="false">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：正确</p>
+                    <p>解析：等价类划分法的测试用例必须覆盖所有有效等价类，以确保所有有效的输入情况都能被测试到。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. （ ）判定表的规则数量等于条件桩中条件数的平方。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="false">正确</div>
+                    <div class="judge-option" data-correct="true">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：错误</p>
+                    <p>解析：判定表的规则数量等于2^n，其中n是条件桩中条件的数量，而不是条件数的平方。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. （ ）白盒测试需要了解程序内部逻辑结构。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="true">正确</div>
+                    <div class="judge-option" data-correct="false">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：正确</p>
+                    <p>解析：白盒测试是基于程序内部逻辑结构的测试，测试人员需要了解程序的内部结构和代码实现。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. （ ）软件缺陷的优先级与严重程度是完全一致的。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="false">正确</div>
+                    <div class="judge-option" data-correct="true">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：错误</p>
+                    <p>解析：缺陷的优先级表示修复的紧急程度，严重程度表示对系统功能的影响程度，两者不一定完全一致。有些严重程度高但影响范围小的缺陷，其优先级可能较低。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. （ ）边界值分析法仅需测试输入范围的中间值。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="false">正确</div>
+                    <div class="judge-option" data-correct="true">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：错误</p>
+                    <p>解析：边界值分析法主要测试输入范围的边界值及边界附近的值，而不是中间值。因为程序错误往往出现在边界处。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. （ ）验收测试通常由用户或客户主导进行。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="true">正确</div>
+                    <div class="judge-option" data-correct="false">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：正确</p>
+                    <p>解析：验收测试是软件测试的最后阶段，通常由用户或客户主导进行，目的是确认软件是否满足用户需求和合同要求。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>7. （ ）性能测试属于功能测试范畴。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="false">正确</div>
+                    <div class="judge-option" data-correct="true">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：错误</p>
+                    <p>解析：性能测试属于非功能测试范畴，主要关注系统的性能指标，如响应时间、吞吐量和资源利用率等，而不是功能的正确性。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. （ ）单元测试通常由开发人员主导执行。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="true">正确</div>
+                    <div class="judge-option" data-correct="false">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：正确</p>
+                    <p>解析：单元测试通常由开发人员主导执行，因为开发人员最了解代码的内部结构和实现细节，更适合进行单元级别的测试。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>9. （ ）软件测试是保证软件没有任何缺陷的过程。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="false">正确</div>
+                    <div class="judge-option" data-correct="true">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：错误</p>
+                    <p>解析：软件测试是发现软件缺陷的过程，但不能保证软件没有任何缺陷。测试只能证明缺陷的存在，而不能证明缺陷的不存在。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>10. （ ）因果图法需要转换为判定表才能生成测试用例。</p>
+                <div class="options">
+                    <div class="judge-option" data-correct="true">正确</div>
+                    <div class="judge-option" data-correct="false">错误</div>
+                </div>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>正确答案：正确</p>
+                    <p>解析：因果图通常需要转换为判定表后才能生成测试用例。因果图表示输入和输出之间的关系，而判定表可以更直观地显示条件组合和对应的操作。</p>
+                </div>
+            </div>
+
+            <!-- 可继续添加其他判断题 -->
+        </section>
+
+        <section>
+            <h2>三、名词解释（5题×4分=20分）</h2>
+            
+            <div class="question">
+                <p>1. <strong>等价类划分法</strong>（第3章）</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>等价类划分法是一种黑盒测试技术，将程序的输入域划分为多个等价类，从每个等价类中选择典型数据作为测试用例。等价类分为有效等价类和无效等价类。有效等价类设计原则是尽可能多地覆盖有效等价类，无效等价类设计原则是每个用例仅覆盖一个无效等价类。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. <strong>单元测试</strong>（第4章）</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>单元测试是针对软件中的最小可测试单元进行的测试，通常是函数或方法。测试依据主要是软件详细设计说明书和源代码。单元测试的主要任务包括模块接口测试、局部数据结构测试、边界条件测试、独立路径测试和错误处理测试等。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. <strong>边界值分析法</strong>（第3章）</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>边界值分析法是一种黑盒测试技术，基于边界处容易出错的经验，重点测试输入范围的边界及其附近的值。对于范围a≤x≤b，常规边界值分析选择a、a+1、b-1、b作为测试数据；健壮性边界值分析还包括边界外的值a-1和b+1。边界值分析法是等价类划分法的补充，能有效发现与边界处理相关的错误。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. <strong>回归测试</strong>（第4章）</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>回归测试是在软件修改后进行的重新测试，目的是确保修改没有引入新的错误或破坏原有的功能。回归测试通常是选择性地重新执行已有的测试用例，特别是与修改部分相关的测试用例。有效的回归测试策略包括全部回归测试、选择性回归测试和优先级回归测试等。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. <strong>性能测试</strong>（第5章）</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>性能测试是一种非功能测试，目的是评估系统在各种负载条件下的性能指标，包括响应时间、吞吐量、资源利用率等。性能测试包括负载测试、压力测试、容量测试和基准测试等多种类型。性能测试的结果用于验证系统是否满足性能需求，并为性能优化提供依据。</p>
+                </div>
+            </div>
+
+            <!-- 可继续添加其他名词解释 -->
+        </section>
+
+        <section>
+            <h2>四、简答题（6题×5分=30分）</h2>
+            
+            <div class="question">
+                <p>1. <strong>第1章</strong>：简述软件测试的四大基本原则。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>软件测试的四大基本原则是：</p>
+                    <ol>
+                        <li>软件测试不能证明程序无错：测试只能发现软件中的错误，而不能证明软件没有错误。</li>
+                        <li>尽早和不断地进行软件测试：测试应从软件开发生命周期的早期阶段开始，并贯穿整个开发过程。</li>
+                        <li>Pareto原则（80/20法则）：80%的错误集中在20%的模块中，应重点测试这些关键模块。</li>
+                        <li>软件测试应尽可能具有独立性：测试人员应与开发人员相互独立，以确保测试的客观性和全面性。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. <strong>第2章</strong>：列举逻辑覆盖的5种类型并简要说明。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>逻辑覆盖的5种类型包括：</p>
+                    <ol>
+                        <li>语句覆盖：要求每条语句至少执行一次。</li>
+                        <li>判定覆盖：要求每个判定（条件表达式）的每个可能结果（真和假）至少出现一次。</li>
+                        <li>条件覆盖：要求每个判定中的每个条件的每个可能结果（真和假）至少出现一次。</li>
+                        <li>判定-条件覆盖：同时满足判定覆盖和条件覆盖的要求。</li>
+                        <li>条件组合覆盖：要求判定中各条件的所有可能组合至少出现一次。</li>
+                    </ol>
+                    <p>还有一种路径覆盖：要求程序中所有可能的路径至少执行一次。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. <strong>第3章</strong>：详细描述等价类划分法的测试用例设计步骤和原则。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>等价类划分法的测试用例设计步骤和原则：</p>
+                    <ol>
+                        <li>根据规格说明识别输入条件：分析软件规格说明中的输入条件，包括取值范围、有效条件等。</li>
+                        <li>划分等价类：将输入域划分为有效等价类和无效等价类。
+                            <ul>
+                                <li>有效等价类：符合规格说明的有效输入值集合</li>
+                                <li>无效等价类：不符合规格说明的无效输入值集合</li>
+                            </ul>
+                        </li>
+                        <li>设计测试用例：
+                            <ul>
+                                <li>有效等价类原则：一个测试用例尽可能覆盖多个未覆盖的有效等价类</li>
+                                <li>无效等价类原则：一个测试用例只覆盖一个无效等价类</li>
+                            </ul>
+                        </li>
+                        <li>设计完整性检查：确保所有有效等价类和无效等价类都被至少一个测试用例覆盖</li>
+                    </ol>
+                    <p>等价类划分法能有效减少测试用例数量，同时保持测试的全面性，适合输入条件复杂且有明确范围的软件测试。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. <strong>第4章</strong>：比较单元测试和集成测试的主要区别。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>单元测试和集成测试的主要区别：</p>
+                    <ol>
+                        <li>测试对象不同：
+                            <ul>
+                                <li>单元测试：针对最小可测试单元（函数、方法或类）</li>
+                                <li>集成测试：针对多个已测试单元的组合</li>
+                            </ul>
+                        </li>
+                        <li>测试目的不同：
+                            <ul>
+                                <li>单元测试：验证单个模块的功能正确性</li>
+                                <li>集成测试：验证模块间接口和交互的正确性</li>
+                            </ul>
+                        </li>
+                        <li>执行时间不同：
+                            <ul>
+                                <li>单元测试：在编码完成后立即进行</li>
+                                <li>集成测试：在单元测试通过后进行</li>
+                            </ul>
+                        </li>
+                        <li>测试环境不同：
+                            <ul>
+                                <li>单元测试：通常使用桩模块和驱动模块</li>
+                                <li>集成测试：使用真实的模块组合</li>
+                            </ul>
+                        </li>
+                        <li>执行人员不同：
+                            <ul>
+                                <li>单元测试：通常由开发人员执行</li>
+                                <li>集成测试：通常由测试团队执行</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p>两种测试相辅相成，单元测试确保各个组件的质量，集成测试确保组件协同工作的质量。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. <strong>第5章</strong>：描述性能测试的主要类型及其目的。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>性能测试的主要类型及其目的：</p>
+                    <ol>
+                        <li>负载测试：
+                            <ul>
+                                <li>目的：评估系统在预期负载下的性能表现</li>
+                                <li>关注点：响应时间、吞吐量和资源利用率</li>
+                                <li>特点：逐步增加负载，分析系统行为变化</li>
+                            </ul>
+                        </li>
+                        <li>压力测试：
+                            <ul>
+                                <li>目的：找出系统的极限或断裂点</li>
+                                <li>关注点：系统在极限负载下的稳定性和错误处理能力</li>
+                                <li>特点：模拟超出正常操作条件的极端负载</li>
+                            </ul>
+                        </li>
+                        <li>容量测试：
+                            <ul>
+                                <li>目的：确定系统能够支持的最大用户数或数据量</li>
+                                <li>关注点：系统的可扩展性和资源需求</li>
+                                <li>特点：逐步增加用户数或数据量，直到性能降低到不可接受的程度</li>
+                            </ul>
+                        </li>
+                        <li>基准测试：
+                            <ul>
+                                <li>目的：建立性能基准，用于未来比较</li>
+                                <li>关注点：关键操作的响应时间和资源消耗</li>
+                                <li>特点：在标准条件下测量系统性能，作为优化和比较的参考点</li>
+                            </ul>
+                        </li>
+                        <li>耐久性测试：
+                            <ul>
+                                <li>目的：验证系统在长时间运行下的稳定性</li>
+                                <li>关注点：内存泄漏、资源耗尽和性能下降</li>
+                                <li>特点：在持续负载条件下长时间运行系统</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p>这些测试类型共同帮助确保系统在各种条件下能够提供稳定、高效的服务。</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. <strong>第6章</strong>：分析软件缺陷报告的关键要素及其重要性。</p>
+                <div class="show-answer">显示答案</div>
+                <div class="answer">
+                    <p>软件缺陷报告的关键要素及其重要性：</p>
+                    <ol>
+                        <li>缺陷标识符：唯一标识每个缺陷，便于跟踪和引用</li>
+                        <li>缺陷摘要：简明扼要地描述缺陷，帮助快速理解问题</li>
+                        <li>详细描述：详细说明观察到的问题，包括实际结果和预期结果的对比</li>
+                        <li>复现步骤：详细的操作步骤，确保开发人员能够可靠地重现问题</li>
+                        <li>环境信息：操作系统、浏览器版本、数据配置等，帮助定位环境相关问题</li>
+                        <li>严重级别：表示缺陷对系统功能的影响程度，通常分为致命、严重、一般和轻微</li>
+                        <li>优先级别：表示修复缺陷的紧急程度，帮助项目团队合理安排修复工作</li>
+                        <li>状态：表示缺陷的当前处理状态，如新建、分配、修复、验证和关闭等</li>
+                        <li>附件：截图、日志文件或录屏，直观展示问题现象</li>
+                        <li>相关联系：与其他缺陷、需求或文档的关联关系</li>
+                    </ol>
+                    <p>完整、准确的缺陷报告能够提高缺陷修复效率，减少沟通成本，避免重复报告，并为质量分析和改进提供依据。</p>
+                </div>
+            </div>
+
+            <!-- 可继续添加其他简答题 -->
+        </section>
+    </main>
+
+    <footer>
+        <p>软件测试复习网站 &copy; 2025</p>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html> 
